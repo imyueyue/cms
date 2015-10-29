@@ -1,0 +1,46 @@
+body {
+  padding-top: 5rem;
+  min-height:500px;
+}
+
+.navbar-nav {background:#008792}
+.navbar-nav a {color:#FFFFFF}
+     
+.col-md-4 {width:350px;height:300px;margin-right:2px;}
+
+
+.btn-primary {
+    color: #fff;
+    background-color: #008792;
+    border-color: #008792;
+}
+
+a {
+    color: #008792;
+    text-decoration: none;
+}
+
+.table table {width:100%}
+.table table thead{background:#d3d7d4;text-align:center}
+.table table thead td{border:1px solid #a1a3a6}
+.table table td{padding:6px;border:1px solid #d3d7d4}
+
+.title {
+  padding: 0rem 0rem;
+  text-align: left;
+}
+
+
+.row {
+  margin-bottom: 1rem;
+}
+.row .row {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(86,61,124,.15);
+  border: 1px solid rgba(86,61,124,.2);
+}
