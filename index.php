@@ -3,15 +3,18 @@
  $application = 'application';
  $modules = 'modules';
  $system = 'system';
+ $smarty = 'smarty';
+ $template = 'media';
+
 
 
  define('EXT', '.php');
 
- //error_reporting(E_ALL | E_STRICT);
+ error_reporting(E_ALL | E_STRICT);
 
  //error_reporting(E_ALL & ~E_NOTICE);
 
-error_reporting(NULL);
+//error_reporting(NULL);
 
  define('DOCROOT', realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR);
 
@@ -27,6 +30,9 @@ error_reporting(NULL);
  define('APPPATH', realpath($application).DIRECTORY_SEPARATOR);
  define('MODPATH', realpath($modules).DIRECTORY_SEPARATOR);
  define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
+ define('SMARTY', realpath($smarty).DIRECTORY_SEPARATOR);
+
+ define('TEMPLATES', realpath($template).DIRECTORY_SEPARATOR);
 
 
  unset($application,$modules,$system);

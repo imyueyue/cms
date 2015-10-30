@@ -36,12 +36,14 @@ class Route {
 		$_RequestUri = $_SERVER['REQUEST_URI'];
 
 
+
 		$_AppPath = str_replace($_DocumentPath, '', $_FilePath);
 
 		$_UrlPath = $_RequestUri;
 
 
 		$_AppPathArr = explode(DIRECTORY_SEPARATOR, $_AppPath);
+
 
 
 		for ($i = 0; $i < count($_AppPathArr); $i++) {
@@ -54,14 +56,26 @@ class Route {
 
 		$_UrlPath = preg_replace('/^\//', '', $_UrlPath, 1);
 
+
+
 		$_AppPathArr = explode("/", $_UrlPath);
+
+
+
 		$_AppPathArr_Count = count($_AppPathArr);
 
 		if ($uri==NULL){
+		  if ($_AppPathArr_Count>2)
 			$arr_url = array(
+					'opt'=>'',
 					'controller' => 'welcome',
 					'action' => 'index'
 			);
+		  else
+		  	$arr_url = array(
+		  			'controller' => 'welcome',
+		  			'action' => 'index'
+		  	);
 
 			$arr_url['controller'] = $_AppPathArr[0];
 			if ($_AppPathArr_Count>1)
@@ -69,6 +83,15 @@ class Route {
 			else
 				$arr_url['action']='index';
 
+			if ($_AppPathArr_Count>2)
+			{
+			   $str=$_AppPathArr[2];
+	           if (strpos($str,'?')>0){
+               	$arr_url['opt']= substr($str, 0,strpos($str,'?'));
+               }
+               else
+				$arr_url['opt'] = $_AppPathArr[2];
+			}
 		}
 		else
 		{

@@ -18,14 +18,19 @@ if ($route['controller']=='')
  if ($action=='')
    $action=$_action;
 
-
+ if (count($route)>2)
+ {
+   $opt=$route['opt'];
+   require $controller.DIRECTORY_SEPARATOR.$action.DIRECTORY_SEPARATOR.$opt.EXT;
+ }
+ else
  if (is_dir($controller) && (file_exists($controller.DIRECTORY_SEPARATOR.$action.EXT)))
   require $controller.DIRECTORY_SEPARATOR.$action.EXT;
  else
  {
- 	@header('HTTP/1.1 404 Not Found');
- 	@header('Location: /404.php');
- 	die();
+ 	//@header('HTTP/1.1 404 Not Found');
+ 	//@header('Location: /404.php');
+ 	//die();
  }
 
  }catch(Exception $e)
