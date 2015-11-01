@@ -30,7 +30,7 @@
  define('APPPATH', realpath($application).DIRECTORY_SEPARATOR);
  define('MODPATH', realpath($modules).DIRECTORY_SEPARATOR);
  define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
- define('SMARTY', realpath($smarty).DIRECTORY_SEPARATOR);
+ define('SMARTY', realpath($smarty).DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR);
 
  define('TEMPLATES', realpath($template).DIRECTORY_SEPARATOR);
 

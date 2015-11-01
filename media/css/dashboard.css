@@ -65,9 +65,9 @@ body {
 .nav-sidebar > .active > a,
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
-  color: #000;
+  color: #fff;
   font-weight:100;
- /*background-color: #428bca; */
+  background-color: #428bca; 
 }
 
 

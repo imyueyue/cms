@@ -5,7 +5,7 @@ return array(
 				'port'=>3306,
 				'user'=>'root',
 				'passwd'=>'',
-				'dbname'=>'report'
+				'dbname'=>'cms'
 		),
 		'msgs'=>array(
 				 'success'=>'成功',

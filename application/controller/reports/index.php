@@ -9,7 +9,7 @@
 
     <div class="container">
       <div class="starter-template">
-       <form method="get" action="/reports/index/s" >
+       <form method="get" action="/reports/report/find" >
         <label for="sku">商品名称或简码：</label><input type="text" name="SKU" class="sku" value="<?php if (isset($sku)) echo $sku; ?>" />
         <label for="lotid">批号：</label><input type="text" name="lotid" value="<?php if (isset($lotid)) echo $lotid; ?>" />
         <input type="submit" value=" 查询 " />

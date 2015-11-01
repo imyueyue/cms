@@ -16,6 +16,13 @@
     <!-- Custom styles for this template -->
     <link href="../../media/css/dashboard.css" rel="stylesheet">
 
+    {foreach from=$links item=value}
+     <link href="{$value}" rel="stylesheet">
+    {/foreach} 
+
+    {foreach from=$scripts item=value}
+      <script charset="utf-8" src="{$value}"></script>
+    {/foreach}
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../media/js/ie10-viewport-bug-workaround.js"></script>
   </head>
@@ -32,7 +39,7 @@
       <a class="navbar-brand" href="#">{$AdminTitle}</a>
       <nav class="nav navbar-nav pull-left">
       {section name=sec1 loop=$Navs}
-        <a class="nav-item nav-link" href="#">{$Navs[sec1].name}</a>
+        <a class="nav-item nav-link" href="{$Navs[sec1].url}">{$Navs[sec1].name}</a>
       {/section}
       </nav>
       <form class="navbar-form pull-right">
@@ -45,7 +52,7 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-
+        
          {section name=sec1 loop=$Menus['News']}
             {if $Menus['News'][sec1].active }
             <li class="active"><a href="{$Menus['News'][sec1].url}">{$Menus['News'][sec1].name} <span class="sr-only">(current)</span></a></li>

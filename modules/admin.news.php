@@ -1,9 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-interface IAdmin{
-	function setData(array $data);
-	function getData($param);
-}
+require MODPATH.'admin'.EXT;
 
 
 class Model_Admin_News implements IAdmin {
@@ -24,31 +21,41 @@ class Model_Admin_News implements IAdmin {
 		$mysql->commit();
 	}
 
-	public function getData($param){
-		if ($param=='list'){
+	public function getData($act,array $param=NULL){
+	    if ($act=="msg"){
+	      if ($param!==null){
+	      	if ($param['msg']=='ok')
+	      	return '成功保存 ! '; 
+	      }
+	    }
+		else
+		if ($act=='list'){
 			$mysql = new MMysql($this->_config['db']);
 			$ary = $mysql->field('*')
+			->order('addtime desc')
 			->limit(1,10)
 			->select('news');
-
+           
 			return $ary;
 
 		}
-		else
-			if ($param=='news')
+        else	
+			if ($act=='news')
 			{
+				$active= $param['act'];
+				
 				$ary=array(
 						'title'=>'CMS Admin',
 						'AdminTitle'=>'后台管理',
 						'Navs'=>array(
-								array('name'=>'主页'),
-								array('name'=>'新闻类'),
-								array('name'=>'公告类')
+								array('name'=>'主页','url'=>'/'),
+								array('name'=>'新闻类','url'=>'/admin/news/index'),
+								array('name'=>'公告类','url'=>'/admin/notices/index')
 						),
 						'Menus'=>array(
 								'News'=>array(
-										array('active'=>true,'url'=>'/admin/news/list','name'=>'新闻列表'),
-										array('active'=>false,'url'=>'/admin/news/add','name'=>'添加新闻'),
+										array('active'=>$active=='list','url'=>'/admin/news/list','name'=>'新闻列表'),
+										array('active'=>$active=='add','url'=>'/admin/news/add','name'=>'添加新闻'),
 										array('active'=>false,'url'=>'#','name'=>'删除新闻'),
 										array('active'=>false,'url'=>'#','name'=>'编辑新闻'),
 
@@ -65,7 +72,7 @@ class Model_Admin_News implements IAdmin {
 }
 
 
-class AdminFactory{
+class AdminNewsFactory{
 	public static function intance(){
 		return new Model_Admin_News($GLOBALS['cfg']);
 	}

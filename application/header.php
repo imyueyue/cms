@@ -49,7 +49,7 @@
 <a class="nav-link" href="../../reports">质检单下载</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="../../managers">管理</a>
+<a class="nav-link" href="../../admin">管理</a>
 </li>
 </ul>
 </nav>
