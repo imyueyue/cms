@@ -3,19 +3,18 @@ defined ( 'SYSPATH' ) or die ( 'No direct script access.' );
 
 require SMARTY . 'Smarty.class' . EXT;
 
-require MODPATH . 'admin.news' . EXT;
+require MODPATH . 'admin.notice' . EXT;
 
 $smarty = new Smarty ();
 
-$template_dir = TEMPLATES . 'templates' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'news';
+$template_dir = TEMPLATES . 'templates' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'notice';
 
-$smarty->assign(AdminNewsFactory::intance()->getheader());
+$smarty->assign(AdminNoticeFactory::intance()->getheader());
 
-
-$smarty->assign ( AdminNewsFactory::intance ()->getData ( 'add',array('act'=>'add') ) );
+$smarty->assign ( AdminNoticeFactory::intance ()->getData ( 'add',array('act'=>'add') ) );
 
 $smarty->assign ( array (
-		'caption' => '增加新闻' 
+		'caption' => '添加公告通知' 
 ) );
 
 $smarty->assign ( array (
@@ -55,7 +54,7 @@ if ($_POST) {
 			'content' => $_POST ['content'] 
 	);
 	
-	AdminNewsFactory::intance ()->setData ( $data );
+	AdminNoticeFactory::intance ()->setData ( $data );
 	
 	//@header ( "Location: ../../admin/news/msgs?msg=ok" );
 	echo "<script>self.location.href='../../admin/news/msgs?msg=ok';</script>";

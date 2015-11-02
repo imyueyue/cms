@@ -1,12 +1,7 @@
 <?php defined ( 'SYSPATH' ) or die ( 'No direct script access.' );
 
-
-interface IAdmin {
-	function setData(array $data);
-	function getData($param);
-}
-
-
+require MODPATH.'admin.interface'.EXT;
+ 
 class Model_Admin implements IAdmin {
 
 	protected $_config;
@@ -24,6 +19,11 @@ class Model_Admin implements IAdmin {
 		$mysql->insert('news', $data);
 		$mysql->commit();
 	}
+	
+	public function getheader(){
+		$act='';
+		return $this->getData($act);
+	}
 
 	public function getData($act,array $param=NULL){
 	    	$ary=array(
@@ -34,8 +34,7 @@ class Model_Admin implements IAdmin {
 								array('name'=>'新闻类','url'=>'/admin/news/index'),
 								array('name'=>'公告类','url'=>'/admin/notices/index')
 						),
-	    			'Menus'=>array('News'=>array()
-	    					),
+	    			'Menus'=>array(),
 	    	);
 				return $ary;
 	}

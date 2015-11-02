@@ -8,9 +8,9 @@ $smarty=new Smarty();
 
 $template_dir = TEMPLATES.'templates'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'news';
 
-$smarty->assign(AdminNewsFactory::intance()->getheader());
+$smarty->assign(AdminNoticeFactory::intance()->getheader());
 
-$smarty->assign(AdminNewsFactory::intance()->getData('add',array('act'=>'list') ) );
+$smarty->assign(AdminNoticeFactory::intance()->getData('add',array('act'=>'list') ) );
 
 $smarty->assign (array(
 		 'links'=>array(),
@@ -18,7 +18,7 @@ $smarty->assign (array(
 		
 ));
 
-$smarty->assign(array('caption'=>'新闻列表','news_list'=>AdminNewsFactory::intance()->getData('list')));
+$smarty->assign(array('caption'=>'新闻列表','news_list'=>AdminNoticeFactory::intance()->getData('list')));
 
 $smarty->template_dir = $template_dir;
 

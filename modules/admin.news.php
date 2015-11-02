@@ -2,8 +2,7 @@
 
 require MODPATH.'admin'.EXT;
 
-
-class Model_Admin_News implements IAdmin {
+class Model_Admin_News extends Model_Admin {
 
 	protected $_config;
 
@@ -19,6 +18,10 @@ class Model_Admin_News implements IAdmin {
 		$mysql->startTrans();
 		$mysql->insert('news', $data);
 		$mysql->commit();
+	}
+	
+	public function getheader(){
+		return parent::getheader();
 	}
 
 	public function getData($act,array $param=NULL){
@@ -40,26 +43,17 @@ class Model_Admin_News implements IAdmin {
 
 		}
         else	
-			if ($act=='news')
+			if ($act=='add')
 			{
 				$active= $param['act'];
 				
 				$ary=array(
-						'title'=>'CMS Admin',
-						'AdminTitle'=>'后台管理',
-						'Navs'=>array(
-								array('name'=>'主页','url'=>'/'),
-								array('name'=>'新闻类','url'=>'/admin/news/index'),
-								array('name'=>'公告类','url'=>'/admin/notices/index')
-						),
 						'Menus'=>array(
-								'News'=>array(
 										array('active'=>$active=='list','url'=>'/admin/news/list','name'=>'新闻列表'),
 										array('active'=>$active=='add','url'=>'/admin/news/add','name'=>'添加新闻'),
 										array('active'=>false,'url'=>'#','name'=>'删除新闻'),
 										array('active'=>false,'url'=>'#','name'=>'编辑新闻'),
 
-								),
 						)
 				);
 				return $ary;

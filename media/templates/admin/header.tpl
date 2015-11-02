@@ -53,13 +53,17 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
         
-         {section name=sec1 loop=$Menus['News']}
-            {if $Menus['News'][sec1].active }
-            <li class="active"><a href="{$Menus['News'][sec1].url}">{$Menus['News'][sec1].name} <span class="sr-only">(current)</span></a></li>
+         {foreach from=$Menus item=value }
+           {$Menus[0][0]}
+           {$value[0]}
+           {foreach from=$value item=v}
+            {if $v.active }
+            <li class="active"><a href="{$v.url}">{$v.name} <span class="sr-only">(current)</span></a></li>
             {else}
-             <li><a href="{$Menus['News'][sec1].url}">{$Menus['News'][sec1].name}</a></li>
+             <li><a href="{$v.url}">{$v.name}</a></li>
             {/if}
-           {/section}
+            {/foreach}
+           {/foreach}
          </ul>
 
         </div>

@@ -1,6 +1,5 @@
 <?php  defined('SYSPATH') or die('No direct script access.');
 
-echo 'ok';
 require SMARTY.'Smarty.class'.EXT;
 
 require MODPATH.'admin.news'.EXT;
@@ -8,6 +7,8 @@ require MODPATH.'admin.news'.EXT;
 $smarty=new Smarty();
 
 $template_dir = TEMPLATES.'templates'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'news';
+
+$smarty->assign(AdminNewsFactory::intance()->getheader());
 
 $smarty->assign(AdminFactory::intance()->getData('news'));
 
