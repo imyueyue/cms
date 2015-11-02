@@ -11,38 +11,39 @@ class Model_Admin_Notice extends Model_Admin {
 		$this->_config = $conf;
 		$this->_Mod = $mod;
 	}
-	
+
 	public function setData(array $data) {
 		$mysql = new MMysql ( $this->_config ['db'] );
 		$mysql->startTrans ();
 		$mysql->insert ( 'notices', $data );
 		$mysql->commit ();
 	}
-	
+
 	public function getheader() {
 		return parent::getheader ();
 	}
-	
+
 	public function getData($act, array $param = NULL) {
+		$active= $param['act'];
 		$ary = array (
 				'Menus' => array (
 						array (
 								'active' => $active == 'list',
-								'url' => '/admin/notice/list',
-								'name' => '公告列表' 
+								'url' => '/admin/notices/list',
+								'name' => '公告列表'
 						),
 						array (
 								'active' => $active == 'add',
-								'url' => '/admin/notice/add',
-								'name' => '添加公告' 
-						) 
-				) 
+								'url' => '/admin/notices/add',
+								'name' => '添加公告'
+						)
+				)
 		);
 		return $ary;
 	}
 }
 class AdminNoticeFactory {
 	public static function intance() {
-		return new Model_Admin ( $GLOBALS ['cfg'] );
+		return new Model_Admin_Notice($GLOBALS ['cfg'] );
 	}
 }

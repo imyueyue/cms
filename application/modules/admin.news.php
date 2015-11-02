@@ -19,7 +19,7 @@ class Model_Admin_News extends Model_Admin {
 		$mysql->insert('news', $data);
 		$mysql->commit();
 	}
-	
+
 	public function getheader(){
 		return parent::getheader();
 	}
@@ -28,7 +28,7 @@ class Model_Admin_News extends Model_Admin {
 	    if ($act=="msg"){
 	      if ($param!==null){
 	      	if ($param['msg']=='ok')
-	      	return '成功保存 ! '; 
+	      	return '成功保存 ! ';
 	      }
 	    }
 		else
@@ -38,21 +38,19 @@ class Model_Admin_News extends Model_Admin {
 			->order('addtime desc')
 			->limit(1,10)
 			->select('news');
-           
+
 			return $ary;
 
 		}
-        else	
+        else
 			if ($act=='add')
 			{
 				$active= $param['act'];
-				
+
 				$ary=array(
 						'Menus'=>array(
 										array('active'=>$active=='list','url'=>'/admin/news/list','name'=>'新闻列表'),
 										array('active'=>$active=='add','url'=>'/admin/news/add','name'=>'添加新闻'),
-										array('active'=>false,'url'=>'#','name'=>'删除新闻'),
-										array('active'=>false,'url'=>'#','name'=>'编辑新闻'),
 
 						)
 				);

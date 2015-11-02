@@ -28,7 +28,7 @@
  	$system = DOCROOT.$system;
 
  define('APPPATH', realpath($application).DIRECTORY_SEPARATOR);
- define('MODPATH', realpath($modules).DIRECTORY_SEPARATOR);
+ define('MODPATH', $application.DIRECTORY_SEPARATOR.$modules.DIRECTORY_SEPARATOR);
  define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
  define('SMARTY', realpath($smarty).DIRECTORY_SEPARATOR.'libs'.DIRECTORY_SEPARATOR);
 

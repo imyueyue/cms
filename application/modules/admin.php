@@ -1,7 +1,7 @@
 <?php defined ( 'SYSPATH' ) or die ( 'No direct script access.' );
 
 require MODPATH.'admin.interface'.EXT;
- 
+
 class Model_Admin implements IAdmin {
 
 	protected $_config;
@@ -19,10 +19,10 @@ class Model_Admin implements IAdmin {
 		$mysql->insert('news', $data);
 		$mysql->commit();
 	}
-	
+
 	public function getheader(){
 		$act='';
-		return $this->getData($act);
+		return Model_Admin::getData($act);
 	}
 
 	public function getData($act,array $param=NULL){
@@ -36,13 +36,14 @@ class Model_Admin implements IAdmin {
 						),
 	    			'Menus'=>array(),
 	    	);
-				return $ary;
+
+	    	return $ary;
 	}
 }
 
 
 class AdminFactory {
 	public static function intance() {
-		return new Model_Admin( $GLOBALS ['cfg'] );
+		return new Model_Admin($GLOBALS ['cfg'] );
 	}
 }

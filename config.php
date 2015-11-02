@@ -5,7 +5,7 @@ return array(
 				'port'=>3306,
 				'user'=>'root',
 				'passwd'=>'',
-				'dbname'=>'cms'
+				'dbname'=>'tyhwa'
 		),
 		'msgs'=>array(
 				 'success'=>'成功',

@@ -54,15 +54,11 @@
           <ul class="nav nav-sidebar">
         
          {foreach from=$Menus item=value }
-           {$Menus[0][0]}
-           {$value[0]}
-           {foreach from=$value item=v}
-            {if $v.active }
-            <li class="active"><a href="{$v.url}">{$v.name} <span class="sr-only">(current)</span></a></li>
+            {if $value['active'] }
+             <li class="active"><a href="{$value['url']}">{$value['name']} <span class="sr-only">(current)</span></a></li>
             {else}
-             <li><a href="{$v.url}">{$v.name}</a></li>
+             <li><a href="{$value['url']}">{$value['name']}</a></li>
             {/if}
-            {/foreach}
            {/foreach}
          </ul>
 
