@@ -70,10 +70,21 @@ body {
   background-color: #428bca; 
 }
 
-.pull-left {
+.error{
+  color:#fff000;	
+}
+
+.pull-left{
     padding: 12px 0 0 40px;
 
 }
+
+.pull-right  {
+    padding: 20px 10px 0 0;
+
+}
+
+
 
 .navbar-dark .navbar-nav .nav-link {
 	color:#fff;

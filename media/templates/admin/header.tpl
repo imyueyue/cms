@@ -42,9 +42,9 @@
         <a class="nav-item nav-link" href="{$Navs[sec1].url}">{$Navs[sec1].name}</a>
       {/section}
       </nav>
-      <form class="navbar-form pull-right">
-        <input type="text" class="form-control" placeholder="Search...">
-      </form>
+      <nav class="nav navbar-nav pull-right">
+        {$islogined}
+      </nav>
     </nav>
     
     

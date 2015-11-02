@@ -60,7 +60,16 @@ class Route {
 
 		$_AppPathArr = explode("/", $_UrlPath);
 
-
+        if (isset($_AppPathArr[1])){
+        if ($_AppPathArr[1]=='login' || $_AppPathArr[1]=='logout')
+        {
+        	$arr_url = array(
+        			'controller' =>$_AppPathArr[0],
+        			'action' =>  $_AppPathArr[1]
+        	);
+        	return 	$arr_url;
+        }
+        }
 
 		$_AppPathArr_Count = count($_AppPathArr);
 

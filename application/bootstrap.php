@@ -8,9 +8,17 @@ try{
 
  $route= RouteFactory::intance()->set('');
 
+
  $controller=APPPATH.'controller'.DIRECTORY_SEPARATOR.$route['controller'];
 
  $action=$route['action'];
+
+ if(($action=='login') || ($action=='logout'))
+ {
+ 	require $controller.DIRECTORY_SEPARATOR.'index'.EXT;
+ 	exit;
+ }
+
 
 if ($route['controller']=='')
  	$controller=$controller.$_default;
