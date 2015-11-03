@@ -9,6 +9,18 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+
+.input-group
+{
+	display:block;
+}
+
+.captcha {
+	border-radius: 2px;
+	cursor:pointer;position: absolute;z-index:3;left: 15px;top: 10px;}
+
+#validateCode {padding-left: 110px;}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;

@@ -31,19 +31,30 @@
         <input type="text" name="username" id="inputUser" class="form-control" placeholder="用户名" required autofocus>
         <label for="inputPassword" class="sr-only">口令</label>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="口令" required>
+        <div class="input-group">
+          <img class="captcha" style="-webkit-user-select: none" src="admin/captcha/index">
+          <label for="validateCode" class="sr-only">验证码</label>
+          <input type="text" class="form-control" id="validateCode" name="validateCode" placeholder="四位字符验证码">
+       
+        </div>
+      
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> 记住口令
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">确定</button>
         
-        <div style="color:#ff0000" class="error">{$error}</div>
+       
+        <button id="login" class="btn btn-lg btn-primary btn-block" type="button" onclick="login_submit()">确定</button>
+        
+        <div style="color:#ff0000" class="error" id="error" >{$error}</div>
    
       </form>
 
     </div> <!-- /container -->
 
+    <script type="text/javascript" src="../../media/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../media/js/admin.js"></script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
