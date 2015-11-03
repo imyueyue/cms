@@ -7,6 +7,8 @@ require MODPATH . 'admin.news' . EXT;
 
 $smarty = new Smarty ();
 
+ob_start();
+
 $template_dir = TEMPLATES . 'templates' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR . 'news';
 
 $smarty->assign(AdminNewsFactory::intance()->getheader());
@@ -49,6 +51,27 @@ $smarty->display ( 'add.tpl' );
 
 if ($_POST) {
 	
+	$str = ob_get_contents();
+	
+	$outpath='news/'.date('Ymd');//.DIRECTORY_SEPARATOR.date('m').DIRECTORY_SEPARATOR.date('d');
+	if (!is_dir($outpath)){
+		mkdir($outpath);
+	}
+	
+	$num=CommonFactory::Create()->random(10);
+	
+	$outfilename=$outpath.DIRECTORY_SEPARATOR.''.$num.'.html';
+	
+	$fp = @fopen($outfilename, 'w');
+	if (!$fp) {
+		//Show_Error_Message( ERROR_WRITE_FILE );
+		echo 'error';
+		exit;
+	}
+	fwrite($fp, $str);
+	fclose($fp);
+	ob_end_clean();
+	
 	$data = array (
 			'title' => $_POST ['title'],
 			'subtitle' => $_POST ['subtitle'],
@@ -58,7 +81,7 @@ if ($_POST) {
 	AdminNewsFactory::intance ()->setData ( $data );
 	
 	//@header ( "Location: ../../admin/news/msgs?msg=ok" );
-	echo "<script>self.location.href='../../admin/news/msgs?msg=ok';</script>";
+	echo "<script>self.location.href='../../admin/news/msgs?msg=ok&goto=admin/news/list';</script>";
 }
 
 ?>

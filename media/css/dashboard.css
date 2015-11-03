@@ -25,6 +25,12 @@ body {
   border: 0;
 }
 
+.bg-inverse {
+    color: #eceeef;
+    background-color: #008792;
+}
+
+
 /*
  * Sidebar
  */
@@ -84,7 +90,10 @@ body {
 
 }
 
-
+.pull-right a {
+    padding-left:20px;
+	color:#fff
+}
 
 .navbar-dark .navbar-nav .nav-link {
 	color:#fff;

@@ -24,7 +24,31 @@ class Common implements ICommon {
 		$this->searchDir ( $dir, $data );
 		return $data;
 	}
+
+	public function random($length, $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ') {
+		$hash = '';
+		$max = strlen($chars) - 1;
+		for($i = 0; $i < $length; $i++) {
+			$hash .= $chars[mt_rand(0, $max)];
+		}
+		return $hash;
+	}
+	
+	public function randomdouble($length){
+		$len=10*$length;
+		$numbers = range (1,$len);
+		srand ((float)microtime()*1000000);
+		shuffle ($numbers);
+		$num='';
+		while (list (, $number) = each ($numbers)) {
+			$num=$number;
+		}
+		return $num;
+	}
+	
 }
+
+
 
 /*
  * PHP 正则表达式工具类

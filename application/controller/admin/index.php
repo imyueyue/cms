@@ -7,9 +7,13 @@ require SMARTY.'Smarty.class'.EXT;
 
 $smarty=new Smarty();
 
+
 session_start();
 
+
 $route= RouteFactory::intance()->set('');
+
+
 if (isset($route['action'])){
 	if ($route['action']=='logout'){
 		session_destroy();
@@ -42,15 +46,18 @@ else
 {
 
 	$error_msg= '';
-
 	if ($_POST){
 
 		$user_username = trim($_POST['username']);
 		$user_password = trim($_POST['password']);
+		
 		if(!empty($user_username)&&!empty($user_password)){
 
 			if (Model_Admin_Login::intance($user_username, $user_password)->login()) {
              	$_SESSION['user']=$user_username;
+            
+             	
+             	//print_r($_SESSION);
 				$home_url = '/admin';
 				header('Location: '.$home_url);
 			}else{

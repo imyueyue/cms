@@ -26,10 +26,26 @@ class Model_Admin implements IAdmin {
 	}
 
 	public function getData($act,array $param=NULL){
-		if(!isset($_SESSION)){
-		    session_start();
+		if (!isset($_SESSION)){
+			session_start();
 		}
-	    	$ary=array(
+	
+		if (!isset($_SESSION['user']))
+		{
+		  $home_url = '/admin';
+		  header('Location: '.$home_url);
+		}
+		
+		if ($act=="msg"){
+			if ($param!==null){
+				if ($param['msg']=='ok')
+				return '成功保存 ! ';
+				
+			}
+		}
+		else
+		{
+		$ary=array(
 						'title'=>'CMS Admin',
 						'AdminTitle'=>'后台管理',
 	    			    'islogined'=>'你好：'.$_SESSION['user'].'  <a href="/admin/logout">退出</a>',
@@ -43,6 +59,7 @@ class Model_Admin implements IAdmin {
 	    	);
 
 	    	return $ary;
+		}
 	}
 }
 
@@ -88,11 +105,15 @@ class Model_Admin_Login {
 	}
 
 	public function login(){
+		
 		$mysql = new MMysql($this->_config['db']);
 
+		
 		$ary = $mysql->field('*')
-		->where(array('user'=>$this->_name))
+		->where('user="'.$this->_name.'"')
 		->select('users');
+		
+		
         if (count($ary)>0)
    		  return $ary[0]['pwd']==$this->_pwd;
         else

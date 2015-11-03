@@ -25,14 +25,7 @@ class Model_Admin_News extends Model_Admin {
 	}
 
 	public function getData($act,array $param=NULL){
-	    if ($act=="msg"){
-	      if ($param!==null){
-	      	if ($param['msg']=='ok')
-	      	return '成功保存 ! ';
-	      }
-	    }
-		else
-		if ($act=='list'){
+	   if ($act=='list'){
 			$mysql = new MMysql($this->_config['db']);
 			$ary = $mysql->field('*')
 			->order('addtime desc')

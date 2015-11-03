@@ -1,4 +1,4 @@
-{include file="../header.tpl" title=foo}
+{include file="../header.tpl"}
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h4 class="page-header">{$caption}</h4>

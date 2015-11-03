@@ -14,7 +14,7 @@
       setInterval("refer()", 1000); // 启动1秒定时
       function refer(){ 
       if (t == 0) {
-         location = "../../admin/news/list"; // 设定跳转的链接地址
+         location = "../../{$gotourl}"; // 设定跳转的链接地址
       }
        document.getElementById('show').innerHTML = "" + t + "秒后跳转到列表"; // 显示倒计时
        t--; // 计数器递减

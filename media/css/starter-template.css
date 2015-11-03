@@ -3,6 +3,9 @@ body {
   min-height:500px;
 }
 
+.nav {
+padding:10px 0 0 10px;	
+}
 .navbar-nav {background:#008792}
 .navbar-nav a {color:#FFFFFF}
      
@@ -19,6 +22,7 @@ a {
     color: #008792;
     text-decoration: none;
 }
+
 
 .table table {width:100%}
 .table table thead{background:#d3d7d4;text-align:center}
