@@ -11,6 +11,6 @@ return array(
 				 'success'=>'成功',
 				 'isExistsfile'=>'已存在该文件',
 				),
-		'bak'=>'./report/bak/',
-		'jsonpath'=>'./report/json',
+		'themes'=>'default',
+		'report'=>array('bak'=>'./report/bak/','jsonpath'=>'./report/json')
 );

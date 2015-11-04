@@ -51,15 +51,15 @@ class Append {
 			$filename =$s;
 			$file_extension=end((explode('.', $filename)));
 			if ($file_extension == 'json'){
-				$filename =$this->_config['jsonpath'].'/'.$filename;
+				$filename =$this->_config['report']['jsonpath'].'/'.$filename;
 
 				$json_string = file_get_contents($filename);
 
-				//д��Mysql
+				//Mysql
 				if ($this->setData($json_string)) {
 				  //echo $this->_config['msgs.success'];
 
-				  copy($filename,  $this->_config['bak'].$s);
+				  copy($filename,  $this->_config['report']['bak'].$s);
 				  unlink($filename);
 				}
 				else
@@ -72,7 +72,7 @@ class Append {
 
 }
 
-$ary= CommonFactory::Create()->getDir($configs['jsonpath']);
+$ary= CommonFactory::Create()->getDir($configs['report']['jsonpath']);
 
 $append=new Append($configs);
 $append->appendDataToMySql($ary);

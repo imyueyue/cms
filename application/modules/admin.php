@@ -51,9 +51,10 @@ class Model_Admin implements IAdmin {
 	    			    'islogined'=>'你好：'.$_SESSION['user'].'  <a href="/admin/logout">退出</a>',
 	    			    'Navs'=>array(
 								array('name'=>'主页','url'=>'/'),
-								array('name'=>'新闻类','url'=>'/admin/news/index'),
-								array('name'=>'公告类','url'=>'/admin/notices/index')
-						),
+								array('name'=>'新闻管理','url'=>'/admin/news/index'),
+								array('name'=>'公告管理','url'=>'/admin/notices/index'),
+								array('name'=>'模版管理','url'=>'/admin/templates/index')
+	    			    ),
 
 	    			'Menus'=>array(),
 	    	);

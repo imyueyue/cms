@@ -6,11 +6,11 @@ require MODPATH.'admin.news'.EXT;
 
 $smarty=new Smarty();
 
-$template_dir = TEMPLATES.'templates'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'news';
+$template_dir = TEMPLATES.'templates'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'msg';
 
 $smarty->assign(AdminNewsFactory::intance()->getheader());
 
-$smarty->assign(AdminFactory::intance()->getData('news'));
+$smarty->assign(AdminFactory::intance()->getData('msgs'));
 
 $smarty->assign (array(
 		'links'=>array(),
