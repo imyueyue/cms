@@ -17,7 +17,7 @@ body {
 
 .captcha {
 	border-radius: 2px;
-	cursor:pointer;position: absolute;z-index:3;left: 15px;top: 10px;}
+	cursor:pointer;position: absolute;z-index:3;left: 4px;top: 3px;}
 
 #validateCode {padding-left: 110px;}
 

@@ -56,6 +56,7 @@ if ($_POST) {
 	$outpath='news/'.date('Ymd');//.DIRECTORY_SEPARATOR.date('m').DIRECTORY_SEPARATOR.date('d');
 	if (!is_dir($outpath)){
 		mkdir($outpath);
+		chmod($outpath,0777);
 	}
 	
 	$num=CommonFactory::Create()->random(10);

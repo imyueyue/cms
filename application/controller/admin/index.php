@@ -59,6 +59,7 @@ else
 		  $error_msg = '请输入验证码.';
 		else	
 		{
+			
 		$isdo= strtoupper($captcha) == strtoupper($_SESSION['captcha']);
 
 		if ($isdo){
@@ -69,7 +70,7 @@ else
 
 			if (Model_Admin_Login::intance($user_username, $user_password)->login()) {
              	$_SESSION['user']=$user_username;
-             
+             	unset($_SESSION['captcha']);
 			   $home_url = '/admin';
 			   header('Location: '.$home_url);
 			}else{

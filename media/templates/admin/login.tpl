@@ -34,7 +34,7 @@
         <div class="input-group">
           <img class="captcha" style="-webkit-user-select: none" src="admin/captcha/index">
           <label for="validateCode" class="sr-only">验证码</label>
-          <input type="text" class="form-control" id="validateCode" name="validateCode" placeholder="四位字符验证码">
+          <input type="text" class="form-control" id="validateCode" name="validateCode" placeholder="四位字符验证码" required autofocus>
        
         </div>
       
