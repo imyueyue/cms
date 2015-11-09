@@ -10,9 +10,21 @@ body {
   margin: 0 auto;
 }
 
+.captcha-box{position:relative}
+
+#mobile_captcha{width:200px;margin-bottom:10px;margin-top:5px}
+.mobile_login{display:none;}
+
+.form-signin-heading {display:block;position:relative}
+
+.loginModel {font-size:10px;right:10px;top:20px;position: absolute;}
+
+#getting{width:160px;position: absolute;left: 139px;top: 51px;}
+
 .input-group
 {
 	display:block;
+	margin-bottom:40px;
 }
 
 .captcha {
