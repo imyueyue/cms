@@ -17,9 +17,15 @@ body {
 
 .captcha {
 	border-radius: 2px;
-	cursor:pointer;position: absolute;z-index:3;left: 4px;top: 3px;}
+	cursor:pointer;position: absolute;z-index:3;left: 144px;top: 3px;}
+	
+.refimg {position: absolute;z-index:3;left: 254px;top: 12px;}
+	
+#login{background-color:#008792}
+.btn-primary:hover {border-color:#008792}
+.btn-primary {border-color:#008792}
 
-#validateCode {padding-left: 110px;}
+#validateCode {padding-left: 10px;width:140px;margin-bottom:10px;}
 
 .form-signin .form-signin-heading,
 .form-signin .checkbox {

@@ -35,15 +35,10 @@
           <img class="captcha" style="-webkit-user-select: none" src="admin/captcha/index">
           <label for="validateCode" class="sr-only">验证码</label>
           <input type="text" class="form-control" id="validateCode" name="validateCode" placeholder="四位字符验证码" required autofocus>
-       
+          <a class="refimg" href="javascript:refreshCaptcha()">刷新</a>          
         </div>
       
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> 记住口令
-          </label>
-        </div>
-        
+          
        
         <button id="login" class="btn btn-lg btn-primary btn-block" type="button" onclick="login_submit()">确定</button>
         
